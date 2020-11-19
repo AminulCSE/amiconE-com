@@ -7,11 +7,9 @@
                 <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
-                      <li class="menu-header">Computer</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                      @foreach($category as $category_row)
+                      <li class="menu-header">{{ $category_row->cat_name }}</li>
+                      @endforeach
                     </ul>
                   </li>
                 </ul>
@@ -20,4 +18,5 @@
             </form>
           </div>
           <!-- /.search-area --> 
-          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+          <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+        </div>

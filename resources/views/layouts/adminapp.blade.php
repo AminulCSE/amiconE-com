@@ -256,6 +256,27 @@
                                 </li>
 
 
+                                <li class="pcoded-hasmenu {{ request()->is('product/*') ? 'pcoded-trigger':'' }}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-mtext">Product</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="{{ request()->is('product/create_product') ? 'active':'' }}">
+                                            <a href="{{ url('product/create_product') }}">
+                                                <span class="pcoded-mtext">Add Product</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="{{ request()->is('product/all_slider') ? 'active':'' }}">
+                                            <a href="{{ url('product/all_product') }}">
+                                                <span class="pcoded-mtext">All Product</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
 
                                 <li class="pcoded-hasmenu {{ request()->is('slider/*') ? 'pcoded-trigger':'' }}">
                                     <a href="javascript:void(0)">
@@ -265,13 +286,34 @@
                                     <ul class="pcoded-submenu">
                                         <li class="{{ request()->is('slider/create_slider') ? 'active':'' }}">
                                             <a href="{{ url('slider/create_slider') }}">
-                                                <span class="pcoded-mtext">Add SubCategory</span>
+                                                <span class="pcoded-mtext">Add Slider</span>
                                             </a>
                                         </li>
 
                                         <li class="{{ request()->is('slider/all_slider') ? 'active':'' }}">
                                             <a href="{{ url('slider/all_slider') }}">
-                                                <span class="pcoded-mtext">All SubCategory</span>
+                                                <span class="pcoded-mtext">All Slider</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="pcoded-hasmenu {{ request()->is('logo/*') ? 'pcoded-trigger':'' }}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-mtext">Logo</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="{{ request()->is('logo/create_logo') ? 'active':'' }}">
+                                            <a href="{{ url('logo/create_logo') }}">
+                                                <span class="pcoded-mtext">Add Logo</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="{{ request()->is('logo/all_logo') ? 'active':'' }}">
+                                            <a href="{{ url('logo/all_logo') }}">
+                                                <span class="pcoded-mtext">All Logo</span>
                                             </a>
                                         </li>
                                     </ul>

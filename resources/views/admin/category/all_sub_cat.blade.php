@@ -46,7 +46,7 @@
                                                 <td>{{ $sub_cat_row->cat_name }}</td>
                                                 <td>
 
-                                                    @if($sub_cat_row->status == 1) 
+                                                    @if($sub_cat_row->status == '1') 
                                                     <div class="label-main">
                                                         <label class="label label-success">Active</label>
                                                     </div>

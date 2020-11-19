@@ -49,25 +49,6 @@ class SliderController extends Controller
 	    return view('admin.slider.edit_slider', compact('edit_slider'));
     }
 
- //    public function update(Request $request, $id){
- //    	$validatedData = $request->validate([
-	//         'cat_name' 	=> 'required|max:255',
-	//         'status' 	=> 'required',
-	//     ]);
-	//     $update_data = array();
-
-	//     $update_data['cat_name'] 	= $request->cat_name;
-	//     $update_data['status'] 		= $request->status;
-	//     $update_data['cat_slug'] 	= $this->sluggen($request->cat_name);
-	//     $insert = DB::table('categories')->where('id', $id)->update($update_data);
-	//     return back()->with('message', 'Category Updated Success!');
- //    }
-
- //    public function delete($id){
-	//     $edit_cat = DB::table('categories')->where('id', $id)->delete();
-	//     return back()->with('message', 'Category Deleted Success!');
- //    }
-
 
     public function update(Request $request, $id){
     	$validatedData = $request->validate([
@@ -103,17 +84,14 @@ class SliderController extends Controller
     }
 
 
-    
+    public function delete($id){
+    	$slider_delete = DB::table('sliders')->where('id', $id)->first();
+    	$image = $slider_delete->image;
 
-    
-
- //    public function sluggen($string){
-	//     $string = utf8_encode($string);
-	//     $string = iconv('UTF-8', 'ASCII//TRANSLIT', $string);   
-	//     $string = preg_replace('/[^a-z0-9- ]/i', '', $string);
-	//     $string = str_replace(' ', '-', $string);
-	//     $string = trim($string, '-');
-	//     $string = strtolower($string);
-	//     return $string;
-	// }
+    	$delete_slider = DB::table('sliders')->where('id', $id)->delete();
+        if ($delete_slider) {
+        	unlink($image);
+            return back()->with('message', 'Slider Deleted Success!');
+		}
+    }
 }

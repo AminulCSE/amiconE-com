@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
     public function index(){
     	$sub_cat_data = DB::table('sub_categories')
     					->join('categories', 'sub_categories.cat_id', '=', 'categories.id')
-    					->select('sub_categories.*', 'categories.cat_name', 'categories.status')
+    					->select('sub_categories.*', 'categories.cat_name', 'categories.status as cat_s')
     					->orderBy('sub_categories.id', 'DESC')->get();
     	return view('admin.category.all_sub_cat', compact('sub_cat_data'));
     }

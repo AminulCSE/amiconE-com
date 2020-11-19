@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>All Slider</h5>
-                                <a class="btn btn-primary float-right" href="{{ url('slider/create_slider') }}">Add Slider</a>
+                                <a class="btn btn-primary float-right" href="{{ url('logo/create_logo') }}">Add Slider</a>
                                 
                             </div>
 
@@ -31,26 +31,22 @@
                                         <thead>
                                             <tr>
                                                 <th>Sl No.</th>
-                                                <th>Title</th>
-                                                <th>Description</th>
-                                                <th>Image</th>
+                                                <th>Logo Image</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php $i=1; @endphp
-                                            @foreach($slider_data as $slider_row)
+                                            @foreach($logo_data as $logo_row)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $slider_row->title }}</td>
-                                                <td>{{ $slider_row->description }}</td>
                                                 <td>
-                                                    <img src="{{ asset($slider_row->image) }}" style="height: 85px; width: auto;">
+                                                    <img src="{{ asset($logo_row->image) }}" style="height: 85px; width: auto;">
                                                 </td>
                                                 <td>
 
-                                                    @if($slider_row->status == 1) 
+                                                    @if($logo_row->status == 1) 
                                                     <div class="label-main">
                                                         <label class="label label-success">Active</label>
                                                     </div>
@@ -62,13 +58,13 @@
 
                                                 </td>
                                                 <td>
-                                                    <a href="{{ url('slider/edit_slider/'.$slider_row->id) }}">
+                                                    <a href="{{ url('logo/edit_logo/'.$logo_row->id) }}">
                                                         <i style="font-size: 22px;" class="ti ti-pencil-alt"></i>
                                                     </a>
                                                     <a href="">
                                                         <i style="font-size: 22px;margin-left: 10px;" class="ti ti-eye"></i>
                                                     </a>
-                                                    <a onclick="return confirm('Are you sure to delete Slider?')" href="{{ url('slider/delete_slider/'.$slider_row->id) }}">
+                                                    <a onclick="return confirm('Are you sure to delete Slider?')" href="{{ url('logo/delete_logo/'.$logo_row->id) }}">
                                                         <i style="font-size: 22px;margin-left: 10px;" class="ti ti-trash"></i>
                                                     </a>
                                                 </td>
