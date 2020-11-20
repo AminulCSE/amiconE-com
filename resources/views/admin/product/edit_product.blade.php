@@ -26,45 +26,84 @@
                                     </div>
                                 @endif
 
-                                <h5>Edit Slider</h5>
-                                <a class="btn btn-primary float-right" href="{{ url('slider/all_slider') }}">All Slider</a>
+                                <h5>Add Product</h5>
+                                <a class="btn btn-primary float-right" href="{{ url('product/all_product') }}">All Product</a>
                             </div>
 
                             <div class="card-block">
-                                <form action="{{ url('slider/update_slider/'.$edit_slider->id) }}" method="POST" enctype='multipart/form-data'>
+                                <form action="{{ url('product/update_product/'.$edit_product->id) }}" method="POST" enctype='multipart/form-data'>
                                     @csrf
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Title</label>
+                                        <label class="col-sm-2 col-form-label">Product Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="title" class="form-control" value="{{ $edit_slider->title }}">
+                                            <input type="text" name="product_name" class="form-control" value="{{ $edit_product->product_name }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Product Code</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="product_code" class="form-control" value="{{ $edit_product->product_code }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Price</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="price" class="form-control" value="{{ $edit_product->price }}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Select Category</label>
+                                        <div class="col-sm-8">
+                                            <select name="cat_id" class="form-control">
+                                                @foreach($all_cat as $all_cat_row)
+                                                <option
+                                                @if($edit_product->cat_id == $all_cat_row->id) selected="" @endif
+                                                value="{{ $all_cat_row->id }}">
+
+                                                {{ ucwords($all_cat_row->cat_name) }}
+                                                </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Description</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="description" class="form-control" value="{{ $edit_slider->description }}">
+                                            <textarea name="description" rows="5" cols="5" class="form-control" placeholder="Default textarea">{{ $edit_product->description }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Slider Image</label>
+                                        <label class="col-sm-2 col-form-label">Product Image1</label>
                                         <div class="col-sm-8">
-                                            <img src="{{ asset($edit_slider->image) }}" height="70px" width="auto">
-                                            <input type="file" name="image" class="form-control">
+                                            <img src="{{ asset($edit_product->image1) }}" style="height: 70px; width: auto;">
+                                            <input type="file" name="image1" class="form-control">
 
-                                            <input type="hidden" name="oldimage" value="{{$edit_slider->image}}">
+
+                                            <input type="hidden" name="old_img1" value="{{ $edit_product->image1 }}">
+                                            <input type="hidden" name="old_img2" value="{{ $edit_product->image2 }}">
+                                            <input type="hidden" name="old_img3" value="{{ $edit_product->image3 }}">
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Product Image2</label>
+                                        <div class="col-sm-8">
+                                            <img src="{{ asset($edit_product->image2) }}" style="height: 70px; width: auto;">
+                                            <input type="file" name="image2" class="form-control">
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Select Status</label>
+                                        <label class="col-sm-2 col-form-label">Product Image3</label>
                                         <div class="col-sm-8">
-                                            <select name="status" class="form-control">
-                                                <option {{ $edit_slider->status == "1" ? "selected" : " " }} value="1">Active</option>
-                                                <option {{ $edit_slider->status == "0" ? "selected" : " " }} value="0">Inactive</option>
-                                            </select>
+                                            <img src="{{ asset($edit_product->image3) }}" style="height: 70px; width: auto;">
+                                            <input type="file" name="image3" class="form-control">
                                         </div>
                                     </div>
 
@@ -72,7 +111,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-8">
-                                            <button type="submit" class="btn btn-primary">Update Slider</button>
+                                            <button type="submit" class="btn btn-primary">Insert</button>
                                         </div>
                                     </div>
                                 </form>

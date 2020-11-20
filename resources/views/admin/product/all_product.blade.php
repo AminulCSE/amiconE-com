@@ -13,8 +13,8 @@
                         <!-- Config. table start -->
                         <div class="card">
                             <div class="card-header">
-                                <h5>All Slider</h5>
-                                <a class="btn btn-primary float-right" href="{{ url('slider/create_slider') }}">Add Slider</a>
+                                <h5>All Product</h5>
+                                <a class="btn btn-primary float-right" href="{{ url('product/create_product') }}">Add Product</a>
                                 
                             </div>
 
@@ -31,7 +31,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Sl No.</th>
-                                                <th>Title</th>
+                                                <th>Product Name</th>
+                                                <th>Product Code</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
                                                 <th>Description</th>
                                                 <th>Image</th>
                                                 <th>Status</th>
@@ -40,17 +43,21 @@
                                         </thead>
                                         <tbody>
                                             @php $i=1; @endphp
-                                            @foreach($slider_data as $slider_row)
+                                            @foreach($all_products as $product_row)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $slider_row->title }}</td>
-                                                <td>{{ $slider_row->description }}</td>
+                                                <td>{{ $product_row->product_name }}</td>
+                                                <td>{{ $product_row->product_code }}</td>
+                                                <td>{{ $product_row->cat_name }}</td>
+                                                <td>{{ $product_row->price }}</td>
+                                                <td>{{ $product_row->description }}</td>
+                                                
                                                 <td>
-                                                    <img src="{{ asset($slider_row->image) }}" style="height: 85px; width: auto;">
+                                                    <img src="{{ asset($product_row->image1) }}" style="height: 85px; width: auto;">
                                                 </td>
                                                 <td>
 
-                                                    @if($slider_row->status == 1) 
+                                                    @if($product_row->status == 1) 
                                                     <div class="label-main">
                                                         <label class="label label-success">Active</label>
                                                     </div>
@@ -62,13 +69,13 @@
 
                                                 </td>
                                                 <td>
-                                                    <a href="{{ url('slider/edit_slider/'.$slider_row->id) }}">
+                                                    <a href="{{ url('product/edit_product/'.$product_row->id) }}">
                                                         <i style="font-size: 22px;" class="ti ti-pencil-alt"></i>
                                                     </a>
                                                     <a href="">
                                                         <i style="font-size: 22px;margin-left: 10px;" class="ti ti-eye"></i>
                                                     </a>
-                                                    <a onclick="return confirm('Are you sure to delete Slider?')" href="{{ url('slider/delete_slider/'.$slider_row->id) }}">
+                                                    <a onclick="return confirm('Are you sure to delete Slider?')" href="{{ url('product/delete_product/'.$product_row->id) }}">
                                                         <i style="font-size: 22px;margin-left: 10px;" class="ti ti-trash"></i>
                                                     </a>
                                                 </td>

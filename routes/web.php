@@ -7,7 +7,8 @@ Route::get('admin/index', 'Admin\AdminController@admin_index');
 
 // Frontend route
 Route::get('/', 'FrontendController@front_index');
-Route::get('products', 'FrontendController@product');
+Route::get('product_details/{product_id}', 'FrontendController@product_details');
+Route::get('all_products', 'FrontendController@all_products');
 
 
 Auth::routes();
@@ -50,6 +51,6 @@ Route::get('logo/delete_logo/{id}', 'Admin\LogoController@delete');
 Route::get('product/all_product', 'Admin\ProductController@index');
 Route::get('product/create_product', 'Admin\ProductController@create');
 Route::post('product/store_product', 'Admin\ProductController@store');
-// Route::get('product/edit_product/{id}', 'Admin\ProductController@edit');
-// Route::post('product/update_product/{id}', 'Admin\ProductController@update');
-// Route::get('product/delete_product/{id}', 'Admin\ProductController@delete');
+Route::get('product/edit_product/{id}', 'Admin\ProductController@edit');
+Route::post('product/update_product/{id}', 'Admin\ProductController@update');
+Route::get('product/delete_product/{id}', 'Admin\ProductController@delete');

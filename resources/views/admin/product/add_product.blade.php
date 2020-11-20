@@ -37,16 +37,24 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Product Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="product_name" class="form-control" placeholder="Product Name">
+                                            <input type="text" name="product_name" class="form-control" placeholder="Product Name" value="{{ old('product_name') }}">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Product id</label>
+                                        <label class="col-sm-2 col-form-label">Product Code</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="product_id" class="form-control" placeholder="Product id">
+                                            <input type="text" name="product_code" class="form-control" placeholder="Product Code" value="{{ old('product_code') }}">
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Price</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="price" class="form-control" placeholder="Product price" value="{{ old('price') }}">
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Select Category</label>
