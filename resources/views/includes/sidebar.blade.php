@@ -26,7 +26,7 @@
         
         <!-- ============================================== HOT DEALS ============================================== -->
         <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
-          <h3 class="section-title">Hot deals</h3>
+          <h3 class="section-title">Promotional Item</h3>
           <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
             @php
               $pro_cat = DB::table('products')

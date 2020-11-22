@@ -50,17 +50,17 @@ class ProductController extends Controller
     	if($request->has('image1') && $request->has('image2') && $request->has('image3')){
     	$img1 		= $request->file('image1');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-	    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url1 	= 'frontend/images/products/'.$name_gen;
 
 	    $img2 		= $request->file('image2');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img2->getClientOriginalExtension();
-	    Image::make($img2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url2 	= 'frontend/images/products/'.$name_gen;
 
 	    $img3 		= $request->file('image3');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img3->getClientOriginalExtension();
-	    Image::make($img3)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img3)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url3 	= 'frontend/images/products/'.$name_gen;
 
 	    $data['image1'] 		= $img_url1;
@@ -74,12 +74,12 @@ class ProductController extends Controller
 		if($request->has('image1') && $request->has('image2')){
     	$img1 		= $request->file('image1');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-	    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url1 	= 'frontend/images/products/'.$name_gen;
 
 	    $img2 		= $request->file('image2');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img2->getClientOriginalExtension();
-	    Image::make($img2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url2 	= 'frontend/images/products/'.$name_gen;
 
 	    $data['image1'] 		= $img_url1;
@@ -93,7 +93,7 @@ class ProductController extends Controller
 		if($request->has('image1')){
     	$img1 		= $request->file('image1');
 	    $name_gen 	= hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-	    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+	    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 	    $img_url1 	= 'frontend/images/products/'.$name_gen;
 
 	    $data['image1'] 		= $img_url1;
@@ -147,19 +147,19 @@ class ProductController extends Controller
 
 			$img1 = $request->file('image1');
 		    $name_gen = hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-		    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url1 = 'frontend/images/products/'.$name_gen;
 		    $data['image1'] = $img_url1;
 
 		    $img2 = $request->file('image2');
 		    $name_gen = hexdec(uniqid()).'.'.$img2->getClientOriginalExtension();
-		    Image::make($img2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url2 = 'frontend/images/products/'.$name_gen;
 		    $data['image2'] = $img_url2;
 
 		    $img3 = $request->file('image3');
 		    $name_gen = hexdec(uniqid()).'.'.$img3->getClientOriginalExtension();
-		    Image::make($img3)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img3)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url3 = 'frontend/images/products/'.$name_gen;
 
 		    $data['image3'] = $img_url3;
@@ -177,13 +177,13 @@ class ProductController extends Controller
 
 			$img1 = $request->file('image1');
 		    $name_gen = hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-		    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url1 = 'frontend/images/products/'.$name_gen;
 		    $data['image1'] = $img_url1;
 
 		    $img2 = $request->file('image2');
 		    $name_gen = hexdec(uniqid()).'.'.$img2->getClientOriginalExtension();
-		    Image::make($img2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url2 = 'frontend/images/products/'.$name_gen;
 		    $data['image2'] 		= $img_url2;
 
@@ -200,13 +200,13 @@ class ProductController extends Controller
 
 			$img2 = $request->file('image2');
 		    $name_gen = hexdec(uniqid()).'.'.$img2->getClientOriginalExtension();
-		    Image::make($img2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url2 = 'frontend/images/products/'.$name_gen;
 		    $data['image2'] = $img_url2;
 
 		    $img_one3 = $request->file('image3');
 		    $name_gen = hexdec(uniqid()).'.'.$img_one3->getClientOriginalExtension();
-		    Image::make($img_one3)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img_one3)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url3 = 'frontend/images/products/'.$name_gen;
 		    $data['image3'] 		= $img_url3;
 
@@ -225,7 +225,7 @@ class ProductController extends Controller
 
 			$img1 = $request->file('image1');
 		    $name_gen = hexdec(uniqid()).'.'.$img1->getClientOriginalExtension();
-		    Image::make($img1)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img1)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url1 = 'frontend/images/products/'.$name_gen;
 		    $data['image1'] = $img_url1;
 
@@ -240,7 +240,7 @@ class ProductController extends Controller
 
 	    	$img_one2 = $request->file('image2');
 		    $name_gen = hexdec(uniqid()).'.'.$img_one2->getClientOriginalExtension();
-		    Image::make($img_one2)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img_one2)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url2 = 'frontend/images/products/'.$name_gen;
 
 		    $data['image2'] 		= $img_url2;
@@ -255,7 +255,7 @@ class ProductController extends Controller
 
 	    	$img_one3 = $request->file('image3');
 		    $name_gen = hexdec(uniqid()).'.'.$img_one3->getClientOriginalExtension();
-		    Image::make($img_one3)->resize(270,270)->save('frontend/images/products/'.$name_gen);
+		    Image::make($img_one3)->resize(700,700)->save('frontend/images/products/'.$name_gen);
 		    $img_url3 = 'frontend/images/products/'.$name_gen;
 
 		    $data['image3'] 		= $img_url3;

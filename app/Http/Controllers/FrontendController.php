@@ -21,6 +21,7 @@ class FrontendController extends Controller
         $product_details = DB::table('products')
                             ->where('id', $product_id)
                             ->where('status', '1')
+                            ->select('products.*')
                             ->first();
     	return view('website.product_details', compact('product_details'));
     }

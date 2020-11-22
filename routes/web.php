@@ -2,13 +2,30 @@
 use Illuminate\Support\Facades\Route;
 
 
-// Admin route
+// Admin route---------------------------------------
 Route::get('admin/index', 'Admin\AdminController@admin_index');
 
-// Frontend route
+// Frontend route---------------------------------------
 Route::get('/', 'FrontendController@front_index');
 Route::get('product_details/{product_id}', 'FrontendController@product_details');
 Route::get('all_products', 'FrontendController@all_products');
+
+
+// Cart section---------------------------------------
+Route::post('add_cart', 'CartController@add_cart');
+Route::get('show_cart', 'CartController@show_cart');
+Route::post('update_cart', 'CartController@update_cart');
+Route::get('delete_cart/{rowId}', 'CartController@delete_cart');
+
+
+// Customer deshboard----------------------------------------
+Route::get('customer/login', 'CheckoutController@CustomerLogin');
+Route::get('customer/signup', 'CheckoutController@CustomerSignup');
+Route::post('customer/signup/store', 'CheckoutController@CustomerSignupStore');
+Route::get('email_verification_code', 'CheckoutController@EmailVerify');
+Route::post('verify_store', 'CheckoutController@verify_store');
+
+
 
 
 Auth::routes();

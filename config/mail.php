@@ -88,6 +88,22 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+
+
+    // For email send
+
+    'stream' => [
+        'ssl' => [
+            'allow_self_signed'=>true,
+            'verify_peer'=>false,
+            'verify_peer_name'=>false,
+        ],
+    ],
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

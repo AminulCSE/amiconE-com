@@ -54,9 +54,9 @@
             <li><a href="#"><i class="icon fa fa-user"></i>Contact Us: 01711708105</a></li>
             <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
             <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+            <li><a href="{{ url('show_cart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-            <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
+            <li><a href="{{ url('customer/login') }}"><i class="icon fa fa-lock"></i>Login</a></li>
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -130,7 +130,10 @@
 
 
 
-
+@php $forsubtotal = Cart::content(); $sub_total = 0; @endphp
+  @foreach($forsubtotal as $forsubtotal_row)
+    @php $sub_total += $forsubtotal_row->subtotal  @endphp
+@endforeach
 
         <!-- /.top-search-holder -->
         <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
@@ -139,33 +142,54 @@
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
-              <div class="basket-item-count"><span class="count">2</span></div>
-              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+              <div class="basket-item-count">
+                <span class="count">
+                    {{ Cart::count() }}
+                </span>
+              </div>
+              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">Tk</span><span class="value"> {{ $sub_total }}</span> </span> </div>
             </div>
             </a>
             <ul class="dropdown-menu">
+     
               <li>
+                  @php
+                    $content = Cart::content();
+                    $cart_total = 0;
+                  @endphp
+                  @foreach($content as $content_row)
                 <div class="cart-item product-summary">
                   <div class="row">
                     <div class="col-xs-4">
-                      <div class="image"> <a href="detail.html"><img src="assets/images/cart.jpg" alt=""></a> </div>
+                      <div class="image">
+                        <a href="">
+                          <img src="{{ asset($content_row->options->image1) }}" alt="">
+                        </a>
+                      </div>
                     </div>
                     <div class="col-xs-7">
-                      <h3 class="name"><a href="index8a95.html?page-detail">Simple Product</a></h3>
-                      <div class="price">$600.00</div>
+                      <h3 class="name"><a href="{{ url('show_cart') }}">{{ $content_row->name }}</a></h3>
+                      <div class="price">{{ $content_row->price }} x {{ $content_row->qty }}</div>
                     </div>
-                    <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
+                    <div class="col-xs-1 action"> <a href="{{ url('delete_cart/'.$content_row->rowId) }}" onclick="return confirm('Are you sure to Delete cart this product??? ')"><i class="fa fa-trash"></i></a> </div>
                   </div>
                 </div>
+                @endforeach
                 <!-- /.cart-item -->
                 <div class="clearfix"></div>
                 <hr>
                 <div class="clearfix cart-total">
-                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
+                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>
+
+                    {{ $sub_total }}
+
+                  </span> </div>
                   <div class="clearfix"></div>
-                  <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
-                <!-- /.cart-total--> 
+                  <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                </div>
                 
+
+                <!-- /.cart-total--> 
               </li>
             </ul>
             <!-- /.dropdown-menu--> 
