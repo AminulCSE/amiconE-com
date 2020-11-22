@@ -320,6 +320,29 @@
                                 </li>
 
 
+
+                                <!-- Mangae customer -->
+                                <li class="pcoded-hasmenu {{ request()->is('customer/*') ? 'pcoded-trigger':'' }}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-mtext">Manage Customer</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="{{ request()->is('customer/all_customer') ? 'active':'' }}">
+                                            <a href="{{ url('customer/all_customer') }}">
+                                                <span class="pcoded-mtext">All Customer</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="{{ request()->is('customer/draft_customer') ? 'active':'' }}">
+                                            <a href="{{ url('customer/draft_customer') }}">
+                                                <span class="pcoded-mtext">Draft Customer</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
                                 <li class="">
                                     <a href="navbar-light.htm">
                                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>

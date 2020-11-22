@@ -26,8 +26,7 @@ Route::get('email_verification_code', 'CheckoutController@EmailVerify');
 Route::post('verify_store', 'CheckoutController@verify_store');
 
 
-
-
+// Home route here
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -71,3 +70,9 @@ Route::post('product/store_product', 'Admin\ProductController@store');
 Route::get('product/edit_product/{id}', 'Admin\ProductController@edit');
 Route::post('product/update_product/{id}', 'Admin\ProductController@update');
 Route::get('product/delete_product/{id}', 'Admin\ProductController@delete');
+
+// -----------------------Customer route-----------------------------
+Route::get('customer/all_customer', 'Admin\CustomerController@all_customer');
+Route::get('customer/draft_customer', 'Admin\CustomerController@draft_customer');
+Route::get('customer/delete_draft_customer/{id}', 'Admin\CustomerController@delete_draft_customer');
+Route::get('customer/delete_customer/{id}', 'Admin\CustomerController@delete_customer');
