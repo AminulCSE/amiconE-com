@@ -28,7 +28,30 @@ class FrontendController extends Controller
 
     public function all_products(){
         $all_cat        = DB::table('categories')->where('status', '1')->get();
-        $all_products   = DB::table('products')->paginate(4);
+        $all_products   = DB::table('products')->paginate(10);
         return view('website.all_products', ['all_productss' => $all_products], compact('all_cat'));
+    }
+
+
+    // About us
+    public function aboutus(){
+        return view('website.about_us');
+    }
+
+    // About us
+    public function our_service(){
+        return view('website.our_service');
+    }
+
+    // Contact us
+    public function contact_us(){
+        return view('website.contact_us');
+    }
+
+
+    // products show by categories id
+    public function product_show_by_cat($id){
+        $products_by_cat_id   = DB::table('products')->where('cat_id', $id)->paginate(5);
+         return view('website.product_show_by_category', ['all_productss' => $products_by_cat_id], compact('products_by_cat_id'));
     }
 }

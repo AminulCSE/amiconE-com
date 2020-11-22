@@ -52,11 +52,25 @@
           <ul class="list-unstyled" style="font-size: 14px;">
             <li><a href="#"><i class="icon fa fa-user"></i>Email Us: amiconplus20@gmail.com</a></li>
             <li><a href="#"><i class="icon fa fa-user"></i>Contact Us: 01711708105</a></li>
-            <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
             <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
             <li><a href="{{ url('show_cart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+
+            @if(@Auth::user()->id != NULL && @Auth::user()->usertype=='customer')
+              <li><a href="#"><i class="icon fa fa-user"></i>My Profile</a></li>
+              <li><a href="#"><i class="icon fa fa-user"></i>My Orders</a></li>
+              <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+              </li>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            @else
+
+
             <li><a href="{{ url('customer/login') }}"><i class="icon fa fa-lock"></i>Login</a></li>
+            @endif
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -225,17 +239,16 @@
                 <li class="dropdown yamm mega-menu {{ request()->is('all_products') ? 'active':'' }}"> <a href="{{ url('all_products') }}" >All Products</a>
                 </li>
 
-                <li class="dropdown yamm mega-menu {{ request()->is('about_us') ? 'active':'' }}"> <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                 <li class="dropdown yamm mega-menu {{ request()->is('frontend/aboutus') ? 'active':'' }}"> <a href="{{ url('frontend/aboutus') }}" >About Us</a>
                 </li>
 
-                <li class="dropdown yamm mega-menu {{ request()->is('service') ? 'active':'' }}"> <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Service</a>
+                <li class="dropdown yamm mega-menu {{ request()->is('frontend/our_service') ? 'active':'' }}"> <a href="{{ url('frontend/our_service') }}" >Our Service</a>
                 </li>
 
-                <li class="dropdown yamm mega-menu {{ request()->is('clients') ? 'active':'' }}"> <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clients</a>
+                <li class="dropdown yamm mega-menu {{ request()->is('frontend/contact_us') ? 'active':'' }}"> <a href="{{ url('frontend/contact_us') }}" >Contact us</a>
                 </li>
 
-                <li class="dropdown yamm mega-menu {{ request()->is('contact_us') ? 'active':'' }}"> <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Contact Us</a>
-                </li>
+
               </ul>
               <!-- /.navbar-nav -->
               <div class="clearfix"></div>

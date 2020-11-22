@@ -7,7 +7,7 @@
               @php $category = DB::table('categories')->where('status', '1')->get(); @endphp
               @foreach($category as $cat_row)
               <li class="dropdown menu-item">
-                <a href="#" data-toggle="dropdown">
+                <a href="{{ url('product_show_by_cat/'.$cat_row->id) }}">
                   <i class="icon fa fa-shopping-bag"></i>
                   {{ $cat_row->cat_name }}
                 </a>

@@ -3,40 +3,60 @@
 @section('website_content')
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder"> 
-        <div class='col-md-12'>
-            <div class="clearfix filters-container m-t-10">
-                <div class="row">
+    <div class="row"> 
+      <!-- ============================================== SIDEBAR ============================================== -->
+      @include('includes.sidebar')
+      <!-- /.sidemenu-holder --> 
+      <!-- ============================================== SIDEBAR : END ============================================== --> 
+      
+      <!-- ============================================== CONTENT ============================================== -->
+      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+        <!-- ========================================== SECTION – HERO ========================================= -->
+        
 
-                      <div class="col col-sm-3 col-md-6 no-padding">
-                            <div class="lbl-cnt"><span class="lbl"  style="font-size: 15px">Category</span>
-                                <div class="fld inline">
-                                    <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
-                                        <button data-toggle="dropdown" style="font-size: 15px" type="button" class="btn dropdown-toggle"> Category <span class="caret"></span></button>
-                                        <ul role="menu" class="dropdown-menu">
-                                          @foreach($all_cat as $all_cat_row)
-                                            <li role="presentation"><a href="#">{{ $all_cat_row->cat_name }}</a></li>
-                                          @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- /.fld -->
-                            </div>
-                            <!-- /.lbl-cnt -->
-                        </div>
-                        <!-- /.col -->
+        <!-- Slider section -->
+        <div id="hero">
+          <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+            @php $slider  = DB::table('sliders')->where('status', '1')->get();  @endphp
 
-
+            @foreach($slider as $slider_row)
+            <div class="item" style="background-image: url({{ asset($slider_row->image) }});">
+              <div class="container-fluid">
+                <div class="caption bg-color vertical-center text-left">
+                  <div class="slider-header fadeInDown-1">{{ $slider_row->title }}</div>
+                  <div class="big-text fadeInDown-1"> ertrewtertert </div>
+                  <div class="excerpt fadeInDown-2 hidden-xs"> <span>{{ $slider_row->description }}</span> </div>
+                  <div class="button-holder fadeInDown-3"> <a href="#" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
                 </div>
-                <!-- /.row -->
+              </div>
             </div>
+            @endforeach
+          </div>
+        </div>
+        
 
 
-            <div class="search-result-container ">
-                <div id="myTabContent" class="tab-content category-list">
-                    <div class="tab-pane active " id="grid-container">
-                        <div class="category-product">
+
+
+
+
+       
+
+
+        <!-- About us section -->
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+          <div class="more-info-tab clearfix ">
+              <h3 class="new-product-title pull-left">About us</h3>
+              <!-- /.nav-tabs --> 
+          </div>
+
+          <div class="tab-content outer-top-xs">
+            <div class="tab-pane in active" id="all">
+              <div class="product-slider">
+                <div class="">
+                  
+
+                    <div class="category-product">
                             <div class="row">
                           @foreach($all_productss as $all_products)
                                 <div class="col-sm-6 col-md-3 wow fadeInUp">
@@ -90,20 +110,44 @@
                             </div>
                             <span class="d-flex justify-content-center">{{ $all_productss->links() }}</span>
                             <!-- /.row -->
-                        </div>
-                        <!-- /.category-product -->
+                        </d>
 
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- /.tab-pane #list-container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
+                <!-- /.home-owl-carousel --> 
+              </div>
+              <!-- /.product-slider --> 
             </div>
-            <!-- /.search-result-container -->
+            <!-- /.tab-pane -->
+          </div>
         </div>
-      </div>
         
       </div>
+      <!-- /.homebanner-holder --> 
+      <!-- ============================================== CONTENT : END ============================================== --> 
     </div>
+    <!-- /.row --> 
+    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+    
+    <!-- === BRANDS CAROUSEL : END ===== --> 
   </div>
+  <!-- /.container --> 
 </div>
 @endsection

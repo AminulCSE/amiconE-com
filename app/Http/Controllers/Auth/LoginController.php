@@ -5,19 +5,39 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use App\User;
+
+use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+
+    public function login(Request $request){
+        $validatedData = $request->validate([
+            'email'     => 'required',
+            'password'  => 'required',
+        ]);
+
+        $email      = $request->email;
+        $password   = $request->password;
+
+        $valid_data = User::where('email', $email)->first();
+
+        $password_check = password_verify($password, @$valid_data->password);
+
+        if($password_check == false){
+            return back()->with('message', 'Email or Passrod Does not match');
+        }
+
+        if($valid_data->status == '0'){
+            return back()->with('message', 'Sorry! You are not verified');
+        }
+
+        if(Auth::attempt(['email'=>$email, 'password'=>$password])){
+            return redirect()->route('login');
+        }
+    }
 
     use AuthenticatesUsers;
 
@@ -26,7 +46,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/admin/index';
 
     /**
      * Create a new controller instance.

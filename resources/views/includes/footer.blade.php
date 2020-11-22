@@ -13,19 +13,22 @@
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                  <p>
+                    Phone: +8801711708105
+                    H-79, Block-L, Chairman Bari
+                    Banani, Dhaka-1213, Bangladesh
+                  </p>
                 </div>
               </li>
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                 <div class="media-body">
-                  <p>+(888) 123-4567<br>
-                    +(888) 456-7890</p>
+                  <p>Phone: +8801711708105</p>
                 </div>
               </li>
               <li class="media">
                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                <div class="media-body"> <span><a href="#"> Email: amiconplus20@gmail.com</a></span> </div>
               </li>
             </ul>
           </div>
@@ -95,13 +98,13 @@
     <div class="container">
       <div class="col-xs-12 col-sm-6 no-padding social">
         <ul class="link">
-          <li class="fb pull-left"><a target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
+          <li class="fb pull-left"><a href="http://www.facebook.com/" target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
           <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a></li>
           <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
           <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
           <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li>
           <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>
-          <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
+          <li class="youtube pull-left"><a href="https://www.youtube.com/" target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 no-padding">
