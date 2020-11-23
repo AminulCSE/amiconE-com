@@ -28,7 +28,7 @@ class FrontendController extends Controller
 
     public function all_products(){
         $all_cat        = DB::table('categories')->where('status', '1')->get();
-        $all_products   = DB::table('products')->paginate(10);
+        $all_products   = DB::table('products')->paginate(5);
         return view('website.all_products', ['all_productss' => $all_products], compact('all_cat'));
     }
 

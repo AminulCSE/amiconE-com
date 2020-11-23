@@ -39,7 +39,7 @@
                         <div class="category-product">
                             <div class="row">
                           @foreach($all_productss as $all_products)
-                                <div class="col-sm-6 col-md-3 wow fadeInUp">
+                                <div class="col-sm-12 col-md-3 wow fadeInUp">
                                     <div class="products">
                                         <div class="product">
                                             <div class="product-image">
@@ -71,8 +71,8 @@
 
 
 
-                                                        <li class="lnk wishlist"><a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a></li>
-                                                        <li class="lnk"><a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a></li>
+                                                        <li class="lnk wishlist"><a class="add-to-cart" href="#" title="Wishlist"> <i class="icon fa fa-heart"></i> </a></li>
+                                                        <li class="lnk"><a class="add-to-cart" href="#" title="Compare"> <i class="fa fa-signal"></i> </a></li>
                                                     </ul>
                                                 </div>
                                                 <!-- /.action -->
@@ -86,13 +86,11 @@
                                 </div>
                                 <!-- /.item -->
                       @endforeach
-
                             </div>
-                            <span class="d-flex justify-content-center">{{ $all_productss->links() }}</span>
                             <!-- /.row -->
                         </div>
                         <!-- /.category-product -->
-
+                        {{ $all_productss->links() }}
                     </div>
                     <!-- /.tab-pane -->
                     <!-- /.tab-pane #list-container -->
@@ -105,5 +103,4 @@
       </div>
     </div>
   </div>
-</div>
 @endsection

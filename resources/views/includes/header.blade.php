@@ -9,7 +9,7 @@
 <meta name="author" content="">
 <meta name="keywords" content="MediaCenter, Template, eCommerce">
 <meta name="robots" content="all">
-<title>Flipmart premium HTML5 & CSS3 Template</title>
+<title>Amicon plus</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
@@ -129,6 +129,7 @@
                     <ul class="dropdown-menu" role="menu" >
                       @php $category = DB::table('categories')->where('status', '1')->get(); @endphp
                       @foreach($category as $category_row)
+                      
                       <li class="menu-header">{{ $category_row->cat_name }}</li>
                       @endforeach
                     </ul>

@@ -31,7 +31,6 @@
 						<div class="shopping-cart-btn">
 							<span class="">
 								<a href="{{ url('all_products') }}" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-								<a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
 							</span>
 						</div><!-- /.shopping-cart-btn -->
 					</td>
@@ -82,8 +81,8 @@
 		<thead>
 			<tr>
 				<th>
-					<span class="estimate-title">Estimate shipping and tax</span>
-					<p>Enter your destination to get shipping and tax.</p>
+					<span class="estimate-title">Enter your address</span>
+					<p>Or Contact us +8801711708105</p>
 				</th>
 			</tr>
 		</thead><!-- /thead -->
@@ -91,33 +90,18 @@
 				<tr>
 					<td>
 						<div class="form-group">
-							<label class="info-title control-label">Country <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker">
-								<option>--Select options--</option>
-								<option>India</option>
-								<option>SriLanka</option>
-								<option>united kingdom</option>
-								<option>saudi arabia</option>
-								<option>united arab emirates</option>
-							</select>
+							<label class="info-title control-label">District</label>
+							<input name="district" type="text" class="form-control unicase-form-control text-input" placeholder="">
 						</div>
+
 						<div class="form-group">
-							<label class="info-title control-label">State/Province <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker">
-								<option>--Select options--</option>
-								<option>TamilNadu</option>
-								<option>Kerala</option>
-								<option>Andhra Pradesh</option>
-								<option>Karnataka</option>
-								<option>Madhya Pradesh</option>
-							</select>
+							<label class="info-title control-label">Police Station</label>
+							<input name="polic_station" type="text" class="form-control unicase-form-control text-input" placeholder="">
 						</div>
+
 						<div class="form-group">
 							<label class="info-title control-label">Zip/Postal Code</label>
-							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
-						</div>
-						<div class="pull-right">
-							<button type="submit" class="btn-upper btn btn-primary">GET A QOUTE</button>
+							<input name="zip_code" type="text" class="form-control unicase-form-control text-input" placeholder="">
 						</div>
 					</td>
 				</tr>
@@ -125,46 +109,17 @@
 	</table>
 </div><!-- /.estimate-ship-tax -->
 
-<div class="col-md-4 col-sm-12 estimate-ship-tax">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					<span class="estimate-title">Discount Code</span>
-					<p>Enter your coupon code if you have one..</p>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-				<tr>
-					<td>
-						<div class="form-group">
-							<input type="text" class="form-control unicase-form-control text-input" placeholder="You Coupon..">
-						</div>
-						<div class="clearfix pull-right">
-							<button type="submit" class="btn-upper btn btn-primary">APPLY COUPON</button>
-						</div>
-					</td>
-				</tr>
-		</tbody><!-- /tbody -->
-	</table><!-- /table -->
-</div><!-- /.estimate-ship-tax -->
+
+
 
 <div class="col-md-4 col-sm-12 cart-shopping-total">
+	<form action="{{ url('order_confirm') }}" method="post">
 	<table class="table">
 		<thead>
 			<tr>
 				<th>
 					<div class="cart-sub-total">
-						Subtotal<span class="inner-left-md">Tk: {{ $cart_total }}</span>
-					</div>
-
-					<div class="cart-sub-total">
-						Vat amd Tex<span class="inner-left-md">$600.00</span>
-					</div>
-
-					<div class="cart-grand-total">
-						Grand Total<span class="inner-left-md">$600.00</span>
+						Grand Total<span class="inner-left-md">Tk: {{ $cart_total }} /-</span>
 					</div>
 				</th>
 			</tr>
@@ -173,14 +128,26 @@
 				<tr>
 					<td>
 						<div class="cart-checkout-btn pull-right">
-							<button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
-							<span class="">Checkout with multiples address!</span>
+							<button type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</button>
 						</div>
 					</td>
 				</tr>
 		</tbody><!-- /tbody -->
 	</table><!-- /table -->
-</div><!-- /.cart-shopping-total -->			
+</form>
+</div><!-- /.cart-shopping-total -->
+
+<div class="col-md-4">
+	<div class="payment bg-default" style="border: solid 2px green; border-radius: 12px; text-align: center;">
+		<img src="{{ asset('frontend/images/bkash.svg') }}" style="height: 100px; width: auto;">
+		<h2>Marchent Account: +8801785072312</h2>
+		<p><strong>Note: *</strong>After payment Bkash You must confirm by Phone call to: 01711708105</p>
+	</div>
+</div>
+
+
+
+
 </div><!-- /.shopping-cart -->
 </div> <!-- /.row -->
 </div><!-- /.container -->
