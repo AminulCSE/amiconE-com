@@ -76,7 +76,7 @@
 	</div>
 </div><!-- /.shopping-cart-table -->	
 
-<div class="col-md-4 col-sm-12 estimate-ship-tax">
+<!-- <div class="col-md-4 col-sm-12 estimate-ship-tax">
 	<table class="table">
 		<thead>
 			<tr>
@@ -85,7 +85,7 @@
 					<p>Or Contact us +8801711708105</p>
 				</th>
 			</tr>
-		</thead><!-- /thead -->
+		</thead>
 		<tbody>
 				<tr>
 					<td>
@@ -107,12 +107,12 @@
 				</tr>
 		</tbody>
 	</table>
-</div><!-- /.estimate-ship-tax -->
+</div>
+ -->
 
 
 
-
-<div class="col-md-4 col-sm-12 cart-shopping-total">
+<div class="col-md-6 col-sm-12 cart-shopping-total">
 	<form action="{{ url('order_confirm') }}" method="post">
 	<table class="table">
 		<thead>
@@ -137,7 +137,7 @@
 </form>
 </div><!-- /.cart-shopping-total -->
 
-<div class="col-md-4">
+<div class="col-md-6">
 	<div class="payment bg-default" style="border: solid 2px green; border-radius: 12px; text-align: center;">
 		<img src="{{ asset('frontend/images/bkash.svg') }}" style="height: 100px; width: auto;">
 		<h2>Marchent Account: +8801785072312</h2>

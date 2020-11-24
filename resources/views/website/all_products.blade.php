@@ -1,47 +1,29 @@
 @extends('layouts.website')
 
 @section('website_content')
-<div class="body-content outer-top-xs" id="top-banner-and-menu">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder"> 
-        <div class='col-md-12'>
-            <div class="clearfix filters-container m-t-10">
-                <div class="row">
 
-                      <div class="col col-sm-3 col-md-6 no-padding">
-                            <div class="lbl-cnt"><span class="lbl"  style="font-size: 15px">Category</span>
-                                <div class="fld inline">
-                                    <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
-                                        <button data-toggle="dropdown" style="font-size: 15px" type="button" class="btn dropdown-toggle"> Category <span class="caret"></span></button>
-                                        <ul role="menu" class="dropdown-menu">
-                                          @foreach($all_cat as $all_cat_row)
-                                            <li role="presentation"><a href="#">{{ $all_cat_row->cat_name }}</a></li>
-                                          @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- /.fld -->
-                            </div>
-                            <!-- /.lbl-cnt -->
-                        </div>
-                        <!-- /.col -->
+         <!-- Welcome us section -->
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+          <div class="more-info-tab clearfix ">
+              <h3 class="new-product-title pull-left">Welcome To Our Website</h3>
+              <!-- /.nav-tabs --> 
+          </div>
 
+          <div class="tab-content outer-top-xs">
+            <div class="tab-pane in active" id="all">
+              <div class="product-slider">
+                <div class="">
+                    <div class="contact" style="margin: 44px; padding-bottom: 44px;">
 
-                </div>
-                <!-- /.row -->
-            </div>
-
-
-            <div class="search-result-container ">
-                <div id="myTabContent" class="tab-content category-list">
-                    <div class="tab-pane active " id="grid-container">
+                      <div class="tab-pane active " id="grid-container">
                         <div class="category-product">
                             <div class="row">
                           @foreach($all_productss as $all_products)
                                 <div class="col-sm-12 col-md-3 wow fadeInUp">
-                                    <div class="products">
-                                        <div class="product">
+                                    <div class="product">
                                             <div class="product-image">
                                                 <div class="image"><a href="{{ url('product_details/'.$all_products->id) }}"><img src="{{ asset($all_products->image1) }}" alt=""></a></div>
                                                 <!-- /.image -->
@@ -61,26 +43,20 @@
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">
                                                     <ul class="list-unstyled">
+                                                        <li>
+                                                            <a href="{{ url('product_details/'.$all_products->id) }}" class="btn btn-primary icon"  type="button">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </a>
+                                                        </li>
 
-                                                    <li>
-                                                        <a href="{{ url('product_details/'.$all_products->id) }}" class="btn btn-primary icon"  type="button">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                        </a>
-                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                                    </li>
-
-
-
-                                                        <li class="lnk wishlist"><a class="add-to-cart" href="#" title="Wishlist"> <i class="icon fa fa-heart"></i> </a></li>
-                                                        <li class="lnk"><a class="add-to-cart" href="#" title="Compare"> <i class="fa fa-signal"></i> </a></li>
+                                                        <li class="lnk wishlist">
+                                                            <a class="add-to-cart" href="#" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <!-- /.action -->
                                             </div>
                                             <!-- /.cart -->
-                                        </div>
-                                        <!-- /.product -->
-
                                     </div>
                                     <!-- /.products -->
                                 </div>
@@ -92,15 +68,18 @@
                         <!-- /.category-product -->
                         {{ $all_productss->links() }}
                     </div>
-                    <!-- /.tab-pane -->
-                    <!-- /.tab-pane #list-container -->
+
+                    
+                    </div>
                 </div>
+                </div>
+                </div>
+                <!-- /.home-owl-carousel --> 
+              </div>
+              <!-- /.product-slider --> 
             </div>
-            <!-- /.search-result-container -->
+            <!-- /.tab-pane -->
+          </div>
         </div>
       </div>
-        
-      </div>
-    </div>
-  </div>
 @endsection

@@ -78,12 +78,28 @@
 
 
                             <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Send</button>
-                        </form>
+                        </form><br><br>
 
+
+      <div class="col-xs-12 col-md-12 col-sm-12 no-padding social">
+        <ul class="link">
+          <li class="fb pull-left"><a href="http://www.facebook.com/" target="_blank" rel="nofollow" href="#" title="Facebook"></a></li>
+          <li class="tw pull-left"><a target="_blank" rel="nofollow" href="#" title="Twitter"></a></li>
+          <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li>
+          <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li>
+          <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li>
+          <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="#" title="Linkedin"></a></li>
+          <li class="youtube pull-left"><a href="https://www.youtube.com/" target="_blank" rel="nofollow" href="#" title="Youtube"></a></li>
+        </ul>
+      </div><br><br>
                     </div>
 
 
+
+
                 </div>
+
+
 
 
 

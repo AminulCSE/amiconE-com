@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <!-- Meta -->
 <meta charset="utf-8">
@@ -11,14 +10,21 @@
 <meta name="robots" content="all">
 <title>Amicon plus</title>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-
-
-
-
-
-
 
 <!-- Customizable CSS -->
 <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">

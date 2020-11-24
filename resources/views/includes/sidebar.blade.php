@@ -57,10 +57,9 @@
                 <!-- /.product-info -->
                 
                 <div class="cart clearfix animate-effect">
-                  <div class="action">
+                  <div class="">
                     <div class="add-cart-button btn-group">
-                      <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                     <a href="{{ url('product_details/'.$pro_cat_row->id) }}" class="btn btn-primary">Add to cart</a>
                     </div>
                   </div>
                   <!-- /.action --> 
@@ -90,6 +89,7 @@ $all_crest = DB::table('products')
                   ->join('categories', 'products.cat_id', 'categories.id')
                   ->select('products.*', 'categories.cat_name')
                   ->where('categories.cat_name', 'crest')
+                  ->inRandomOrder()
                   ->get();
  @endphp
 
@@ -112,14 +112,15 @@ $all_crest = DB::table('products')
                 <!-- /.product-info -->
                 
                 <div class="cart clearfix animate-effect">
-                  <div class="action">
+                  <div class="">
                     <div class="add-cart-button btn-group">
-                      <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                      <a href="{{ url('product_details/'.$ccc->id) }}" class="btn btn-primary">Add to cart</a>
                     </div>
                   </div>
                   <!-- /.action --> 
                 </div>
+
+
                 <!-- /.cart --> 
               </div>
             </div>

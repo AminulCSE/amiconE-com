@@ -6,13 +6,8 @@
     <div class="row"> 
       <!-- ============================================== SIDEBAR ============================================== -->
       @include('includes.sidebar')
-      <!-- /.sidemenu-holder --> 
-      <!-- ============================================== SIDEBAR : END ============================================== --> 
-      
-      <!-- ============================================== CONTENT ============================================== -->
+      <!-- /.sidemenu-holder -->
       <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
-        <!-- ========================================== SECTION – HERO ========================================= -->
-        
 
         <!-- Slider section -->
         <div id="hero">
@@ -46,7 +41,7 @@
         <!-- About us section -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
           <div class="more-info-tab clearfix ">
-              <h3 class="new-product-title pull-left">About us</h3>
+              <h3 class="new-product-title pull-left">Product By Category</h3>
               <!-- /.nav-tabs --> 
           </div>
 
