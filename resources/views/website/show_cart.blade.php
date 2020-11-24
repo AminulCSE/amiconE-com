@@ -61,6 +61,9 @@
 							</form>
 			            </div>
 		            </td>
+
+
+
 					<td class="cart-product-sub-total"><span class="cart-sub-total-price">Tk: {{ $content_row->price }}</span></td>
 					<td class="cart-product-grand-total"><span class="cart-grand-total-price">Tk: {{ $content_row->subtotal }}</span></td>
 
@@ -70,45 +73,28 @@
 				@php
 					$cart_total += $content_row->subtotal;
 				@endphp
+
+<form action="{{ url('order_confirm') }}" method="post">
+	@csrf
+    	<input type="hidden" name="qty[{{ $content_row->id }}]" value="{{ $content_row->qty }}">
+    	<input type="hidden" name="product_id[{{ $content_row->id }}]" value="{{ $content_row->id }}">
+    	<input type="hidden" name="total_price[{{ $content_row->id }}]" value={{ $cart_total }}>
+    	<input type="hidden" name="user_id[{{ $content_row->id }}]" value="{{ @Auth::user()->id }}">
+    	
+
+
+
+
 			@endforeach
+
+<button type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</button>
+
+</form>
 			</tbody><!-- /tbody -->
 		</table><!-- /table -->
 	</div>
-</div><!-- /.shopping-cart-table -->	
+</div><!-- /.shopping-cart-table -->
 
-<!-- <div class="col-md-4 col-sm-12 estimate-ship-tax">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					<span class="estimate-title">Enter your address</span>
-					<p>Or Contact us +8801711708105</p>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label class="info-title control-label">District</label>
-							<input name="district" type="text" class="form-control unicase-form-control text-input" placeholder="">
-						</div>
-
-						<div class="form-group">
-							<label class="info-title control-label">Police Station</label>
-							<input name="polic_station" type="text" class="form-control unicase-form-control text-input" placeholder="">
-						</div>
-
-						<div class="form-group">
-							<label class="info-title control-label">Zip/Postal Code</label>
-							<input name="zip_code" type="text" class="form-control unicase-form-control text-input" placeholder="">
-						</div>
-					</td>
-				</tr>
-		</tbody>
-	</table>
-</div>
- -->
 
 
 

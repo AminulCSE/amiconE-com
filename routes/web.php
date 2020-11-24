@@ -18,6 +18,9 @@ Route::get('all_products', 'FrontendController@all_products');
 Route::get('product_show_by_cat/{id}', 'FrontendController@product_show_by_cat');
 
 
+
+
+
 // Cart section---------------------------------------
 Route::post('add_cart', 'CartController@add_cart');
 Route::get('show_cart', 'CartController@show_cart');
@@ -33,6 +36,14 @@ Route::get('email_verification_code', 'CheckoutController@EmailVerify');
 Route::post('verify_store', 'CheckoutController@verify_store');
 
 
+
+	// Order table
+	Route::post('order_confirm', 'OrderController@order_confirm');
+
+
+
+	
+
 // Home route here
 Auth::routes();
 
@@ -44,6 +55,11 @@ Route::group(['middleware'=>['auth', 'customer']], function(){
 
 Route::group(['middleware'=>['auth', 'admin']], function(){
 	Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
 
 	// -----------------------Admin deshboard-------------------
 	Route::get('admin/index', 'Admin\AdminController@admin_index');
