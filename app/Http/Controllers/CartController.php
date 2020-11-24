@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function add_cart(Request $request){
+
     	$validatedData = $request->validate([
 	        'qty' => 'required',
     	]);

@@ -320,6 +320,21 @@
                                 </li>
 
 
+                                <li class="pcoded-hasmenu {{ request()->is('payment/*') ? 'pcoded-trigger':'' }}">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
+                                        <span class="pcoded-mtext">Payment</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="{{ request()->is('payment/all_payment') ? 'active':'' }}">
+                                            <a href="{{ url('payment/all_payment/'.@Auth::user()->id) }}">
+                                                <span class="pcoded-mtext">All Payment</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
 
                                 <!-- Mangae customer -->
                                 <li class="pcoded-hasmenu {{ request()->is('customer/*') ? 'pcoded-trigger':'' }}">

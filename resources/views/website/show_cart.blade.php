@@ -44,10 +44,12 @@
 			@foreach($content as $content_row)
 				<tr>
 					<td class="cart-image">
-						<a class="entry-thumbnail" href="{{ url('product_details/'.$content_row->id) }} ">
+						<a class="entry-thumbnail" href="{{ url('product_details/'.$content_row->id) }}">
 						    <img src="{{ asset($content_row->options->image1) }}" alt="">
 						</a>
 					</td>
+
+
 					<td class="cart-product-name-info">
 						<h4 class='cart-product-description'><a href="{{ url('product_details/'.$content_row->id) }}">{{ $content_row->name }}</a></h4>
 					</td>
@@ -57,7 +59,7 @@
 								@csrf
 								<input type="number" style="width: 100px;" name="qty" value="{{ $content_row->qty }}" min="1">
 								<input type="hidden" name="rowId" value="{{ $content_row->rowId }}">
-								<input class="btn btn-primary" type="submit" name="" value="Update Qty">
+								<button class="btn btn-primary" type="submit" name="">Update Qty</button>
 							</form>
 			            </div>
 		            </td>
@@ -74,22 +76,27 @@
 					$cart_total += $content_row->subtotal;
 				@endphp
 
-<form action="{{ url('order_confirm') }}" method="post">
+<!-- <form action="{{ url('order_confirm') }}" method="post">
 	@csrf
     	<input type="hidden" name="qty[{{ $content_row->id }}]" value="{{ $content_row->qty }}">
+
+    	<input type="hidden" name="id[{{ $content_row->id }}]" value="{{ $content_row->id }}">
+
+
+
     	<input type="hidden" name="product_id[{{ $content_row->id }}]" value="{{ $content_row->id }}">
-    	<input type="hidden" name="total_price[{{ $content_row->id }}]" value={{ $cart_total }}>
+    	<input type="hidden" name="total_price[{{ $content_row->id }}]" value={{ $content_row->price }}>
     	<input type="hidden" name="user_id[{{ $content_row->id }}]" value="{{ @Auth::user()->id }}">
     	
+<button type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</button>
 
+</form> -->
 
 
 
 			@endforeach
 
-<button type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</button>
 
-</form>
 			</tbody><!-- /tbody -->
 		</table><!-- /table -->
 	</div>
@@ -99,7 +106,7 @@
 
 
 <div class="col-md-6 col-sm-12 cart-shopping-total">
-	<form action="{{ url('order_confirm') }}" method="post">
+	<form >
 	<table class="table">
 		<thead>
 			<tr>
@@ -114,7 +121,7 @@
 				<tr>
 					<td>
 						<div class="cart-checkout-btn pull-right">
-							<button type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</button>
+							<a href="{{ url('order_confirm') }}" type="submit" class="btn btn-primary checkout-btn">ORDER CONFIRM</a>
 						</div>
 					</td>
 				</tr>

@@ -36,34 +36,48 @@ Route::get('email_verification_code', 'CheckoutController@EmailVerify');
 Route::post('verify_store', 'CheckoutController@verify_store');
 
 
+// Customer edit profile
+Route::get('customer_edit_profile/{id}', 'DashboardController@customer_edit_profile');
+Route::post('update_customer_profile_by_img/{id}', 'DashboardController@update_customer_profile_by_img');
 
-	// Order table
-	Route::post('order_confirm', 'OrderController@order_confirm');
+Route::post('customer_password_update/{id}', 'DashboardController@customer_password_update');
 
 
 
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
 	
 
 // Home route here
 Auth::routes();
 
-
-
 Route::group(['middleware'=>['auth', 'customer']], function(){
 	Route::get('dashboard', 'DashboardController@dashboard');
+	// Order table
+	Route::get('order_confirm', 'OrderController@order_confirm');
+	// Payment
+	Route::get('payment', 'OrderController@payment');
+	Route::post('payment_store', 'OrderController@payment_store');
+	
 });	
 
+
+
+
+
+
+// -------------------------admin Middleware------------------------------------
 Route::group(['middleware'=>['auth', 'admin']], function(){
-	Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-
-
-
 	// -----------------------Admin deshboard-------------------
 	Route::get('admin/index', 'Admin\AdminController@admin_index');
 
+	// -----------------------Payment route-----------------------------
+	Route::post('payment_edit', 'OrderController@payment_edit');
+	Route::get('payment/all_payment', 'OrderController@all_payment');
+	Route::get('payment/edit_payment/{id}', 'OrderController@edit_payment');
+	Route::post('payment/update_payment/{id}', 'OrderController@update_payment');
 
 	// -----------------------Category route-----------------------------
 	Route::get('category/all_cat', 'Admin\CategoryController@index');
