@@ -23,31 +23,7 @@
 
         <!-- panel-body  -->
         <div class="panel-body">
-            <div class="row">       
-
-                <!-- guest-login -->            
-                <div class="col-md-6 col-sm-6 guest-login">
-                    <h4 class="checkout-subtitle">Name: {{ @Auth::user()->name }}</h4>
-                    <p class="text title-tag-line">Email: {{ @Auth::user()->email }}</p>
-                    <p class="text title-tag-line">Mobile: {{ @Auth::user()->mobile }}</p>
-
-                    <!-- radio-form  -->
-                    <form class="register-form" role="form">
-                        <div class="radio radio-checkout-unicase">  
-                            <input id="guest" type="radio" name="text" value="guest"
-                            @if(@Auth::user()->status == 1) checked="" @endif
-                            >  
-                            <label class="radio-button guest-check" for="guest">Verified</label>  
-                              <br>
-                            <input id="register" type="radio" name="text" value="register"
-                            @if(@Auth::user()->status == 0) checked="" @endif
-                            >  
-                            <label class="radio-button" for="register">No Verified</label>  
-                        </div>  
-                    </form>
-                    <!-- radio-form  -->
-                </div>
-                <!-- guest-login -->
+            <div class="row">
 <div class="col-md-5">
     @if(session()->has('message'))
         <div class="alert alert-success">
@@ -71,27 +47,55 @@
 
 
                 <!-- already-registered-login -->
-                <div class="col-md-6 col-sm-6 already-registered-login">
-                    <h4 class="checkout-subtitle">Change Password</h4>
-                    <form class="register-form" method="post" action="{{ url('customer_password_update/'.@Auth::user()->id) }}" role="form">
-                        @csrf
-                      <div class="form-group">
-                        <label class="info-title" for="exampleInputPassword1">Current password <span>*</span></label>
-                        <input type="password" name="cureent_password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="Enter your Old Password">
-                      </div>
+                <div class="col-md-8 col-sm-8 already-registered-login">
+                    <h4 class="checkout-subtitle">All Orders</h4>
 
-                      <div class="form-group">
-                        <label class="info-title" for="exampleInputPassword1">New password <span>*</span></label>
-                        <input type="password" name="new_password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="Enter your New password">
-                      </div>
 
-                      <div class="form-group">
-                        <label class="info-title" for="exampleInputPassword1">Again new password <span>*</span></label>
-                        <input type="password" name="again_new_password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="Again Enter your New password">
-                      </div>
+                     <table id="new-cons" class="table table-striped table-bordered nowrap">
+                        <div class="col-md-8">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>Sl No.</th>
+                                <th>Product name</th>
+                                <th>Product Price</th>
+                                <th>Category Slug</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php $i=1; @endphp
+                            @foreach($data as $row)
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $row->product_name }}</td>
+                                <td>{{ $row->total_price }}</td>
+                                <td>
 
-                      <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Change</button>
-                    </form>
+                                    <!-- @if($row->status == 1) 
+                                    <div class="label-main">
+                                        <label class="label label-success">Active</label>
+                                    </div>
+                                    @else
+                                    <div class="label-main">
+                                        <label class="label label-danger">Inactive</label>
+                                    </div>
+                                    @endif -->
+
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+
+
+
+                    
                 </div>  
                 <!-- already-registered-login -->       
 
@@ -113,7 +117,7 @@
             </div>
             <div class="">
                 <ul class="nav nav-checkout-progress list-unstyled">
-                    <li><a href="{{ url('all_order_by_customer') }}">My orders</a></li>
+                    <li><a href="#">My orders</a></li>
                     <li><a href="{{ url('payment') }}">Payment Verification</a></li>
                     <li><a href="{{ url('customer_edit_profile/'.@Auth::user()->id) }}">Edit Profile</a></li>
                     <li><a href="#">Order Tracking</a></li>

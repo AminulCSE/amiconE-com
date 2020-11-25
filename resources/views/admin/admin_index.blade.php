@@ -13,11 +13,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">$30200</h4>
-                                                                <h6 class="text-white m-b-0">All Earnings</h6>
-                                                            </div>
-                                                            <div class="col-4 text-right">
-                                                                <canvas id="update-chart-1" height="50"></canvas>
+                                                                <h4 class="text-white">{{ $row_order }}</h4>
+                                                                <h6 class="text-white m-b-0">All Orders</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -31,8 +28,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">290+</h4>
-                                                                <h6 class="text-white m-b-0">Page Views</h6>
+                                                                <h4 class="text-white">{{ $row_products }}</h4>
+                                                                <h6 class="text-white m-b-0">Total products</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-2" height="50"></canvas>
@@ -49,8 +46,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">145</h4>
-                                                                <h6 class="text-white m-b-0">Task Completed</h6>
+                                                                <h4 class="text-white">{{ $categories }}</h4>
+                                                                <h6 class="text-white m-b-0">All Categories</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-3" height="50"></canvas>
@@ -67,8 +64,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">500</h4>
-                                                                <h6 class="text-white m-b-0">Downloads</h6>
+                                                                <h4 class="text-white">{{ $customers }}</h4>
+                                                                <h6 class="text-white m-b-0">All Customers</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-4" height="50"></canvas>

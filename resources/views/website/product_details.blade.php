@@ -107,10 +107,8 @@
                                             </div>
 
                                             <div class="col-sm-2">
-                                                <div class="cart-quantity">
-                                                    <div class="quant-input">
-                                                        <input type="number" class="form-control" name="qty" min="1" value="1">
-                                                    </div>
+                                                <div class="">
+                                                    <input type="number" class="form-control" name="qty" min="1" value="1">
                                                 </div>
                                             </div>
 

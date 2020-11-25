@@ -57,6 +57,7 @@ Route::group(['middleware'=>['auth', 'customer']], function(){
 	Route::get('dashboard', 'DashboardController@dashboard');
 	// Order table
 	Route::get('order_confirm', 'OrderController@order_confirm');
+	Route::get('all_order_by_customer', 'OrderController@all_order_by_customer');
 	// Payment
 	Route::get('payment', 'OrderController@payment');
 	Route::post('payment_store', 'OrderController@payment_store');
@@ -72,6 +73,10 @@ Route::group(['middleware'=>['auth', 'customer']], function(){
 Route::group(['middleware'=>['auth', 'admin']], function(){
 	// -----------------------Admin deshboard-------------------
 	Route::get('admin/index', 'Admin\AdminController@admin_index');
+
+
+	// ---------------------------order route-----------------------
+	Route::get('order/all_order', 'OrderController@all_order');
 
 	// -----------------------Payment route-----------------------------
 	Route::post('payment_edit', 'OrderController@payment_edit');

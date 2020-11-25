@@ -30,10 +30,36 @@ class OrderController extends Controller
     }
 
 
+    public function all_order_by_customer(){
+         $data = DB::table('orders')
+                ->join('products', 'orders.product_id', 'products.id')
+                ->where('user_id', @Auth::user()->id)
+                ->select('products.*', 'orders.*')
+                ->get();
+        return view('website.all_order_by_customer', compact('data'));
+    }
+
+
 
     public function payment(){
     	return view('website.payment');
     }
+
+
+
+
+// here is admin panel function -------------------------------------
+
+    public function all_order(){
+        $data = DB::table('orders')
+                ->join('users', 'orders.user_id', 'users.id')
+                ->join('payments', 'orders.user_id', 'payments.user_id')
+                ->join('products', 'orders.product_id', 'products.id')
+                ->select('orders.*', 'users.name', 'users.mobile', 'users.email', 'products.*','payments.status as payment_status')
+                ->get();
+        return view('admin.order.all_order', compact('data'));
+    }
+
 
 
     public function payment_store(Request $request){
@@ -80,7 +106,6 @@ class OrderController extends Controller
 	    $data['bkash_number'] 		= $request->bkash_number;
 	    $data['payment_bkash_code'] = $request->payment_bkash_code;
 	    $data['paid'] 				= $request->paid;
-	    $data['user_id'] 			= $request->user_id;
 	    $data['status'] 			= $request->status;
 
 	    $insert = DB::table('payments')->where('id', $id)->update($data);
