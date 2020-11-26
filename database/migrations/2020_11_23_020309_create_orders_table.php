@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('total_price');
             $table->string('qty');
             $table->string('payment_status')->default('pending');
-            $table->timestamps();
+            $table->timestamps()->default('CURRENT_TIMESTAMP');
         });
     }
 
